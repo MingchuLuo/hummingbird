@@ -1,0 +1,28 @@
+{
+    "name": "mingchuluo/hummingbird",
+    "description": "A tiny yet smart PHP framework",
+    "type": "project",
+    "require-dev": {
+        "phpunit/phpunit": "^7.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/src",
+            "Hummingbird\\": "core/classes"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "test\\": "tests/"
+        }
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mingchu Luo",
+            "email": "mingchu.loop@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
