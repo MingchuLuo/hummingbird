@@ -10,7 +10,7 @@ namespace Hummingbird\Framework;
 
 use function Hummingbird\make;
 
-abstract class Application
+class Application
 {
 
     public $container;
@@ -21,19 +21,21 @@ abstract class Application
         $this->container = &$_container;
     }
 
-    public function run() {
+    public static function run() {
 
-        make(Configuration::class)->load($this);
+        $app = new Application();
 
-        make(Starter::class)->boot($this);
+        make(Configuration::class)->load($app);
 
-        make(Request::class)->process($this);
+        make(Starter::class)->boot($app);
 
-        $this->destroy();
+        make(Request::class)->process($app);
+
+        $app->destroy();
     }
 
-    protected function register() {}
+    public function register() {}
 
-    protected function destroy() {
+    public function destroy() {
     }
 }
